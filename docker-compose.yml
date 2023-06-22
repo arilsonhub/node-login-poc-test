@@ -1,0 +1,17 @@
+version: '3.4'
+
+networks:
+  manager_dev-net:
+    external: true
+
+services:
+    api-lite:
+        build:
+          context: ./
+          dockerfile: ./Dockerfile
+        networks:
+          - manager_dev-net
+        volumes:
+          - ./:/home/node/app
+        ports:
+          - "5201:3000"
